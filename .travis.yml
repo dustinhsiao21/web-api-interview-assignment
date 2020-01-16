@@ -4,6 +4,7 @@ php:
   - 7.2
 
 before_script:
+  - touch database/database.sqlite
   - composer install
   - cp .env.example .env
   - php artisan key:generate
