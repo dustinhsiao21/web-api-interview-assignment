@@ -20,7 +20,7 @@ class AnswerRepository
     }
 
     /**
-     * Create or update answer by patient_id and question_id
+     * Create or update answer by patient_id and question_id.
      *
      * @param array $data
      * @return Illuminate\Database\Eloquent\Model

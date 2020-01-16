@@ -2,11 +2,11 @@
 
 namespace App\Services;
 
+use App\Exceptions\QuestionTypeErrorException;
+use App\Models\Question;
 use App\Repositories\AnswerRepository;
 use App\Repositories\PatientRepository;
 use App\Repositories\QuestionRepository;
-use App\Exceptions\QuestionTypeErrorException;
-use App\Models\Question;
 
 class AnswerService
 {

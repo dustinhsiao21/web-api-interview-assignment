@@ -20,7 +20,7 @@ class PatientRepository
     }
 
     /**
-     * find patient
+     * find patient.
      *
      * @param array $array
      * @return void

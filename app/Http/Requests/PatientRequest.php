@@ -22,7 +22,7 @@ class PatientRequest extends Request
     public function rules()
     {
         return [
-            'id' => 'required|int'
+            'id' => 'required|int',
         ];
     }
 }
