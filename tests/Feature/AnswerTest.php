@@ -13,7 +13,7 @@ class AnswerTest extends TestCase
     use RefreshDatabase;
 
     /**
-     * Test create single answer
+     * Test create single answer.
      *
      * @return void
      */
@@ -26,7 +26,7 @@ class AnswerTest extends TestCase
         $response = $this->postJson(route('api::answer::create'), [
             'patient_id' => $patient->id,
             'question_id' => $question->id,
-            'answers' => $answers
+            'answers' => $answers,
         ]);
 
         $response->assertSuccessful();
@@ -39,7 +39,7 @@ class AnswerTest extends TestCase
     }
 
     /**
-     * Test Question not found
+     * Test Question not found.
      *
      * @return void
      */
@@ -50,14 +50,14 @@ class AnswerTest extends TestCase
         $response = $this->postJson(route('api::answer::create'), [
             'patient_id' => $patient->id,
             'question_id' => 1,
-            'answers' => ['test']
+            'answers' => ['test'],
         ]);
 
         $response->assertStatus(404);
     }
 
     /**
-     * Test Patient not found
+     * Test Patient not found.
      *
      * @return void
      */
@@ -68,14 +68,14 @@ class AnswerTest extends TestCase
         $response = $this->postJson(route('api::answer::create'), [
             'patient_id' => 1,
             'question_id' => $question->id,
-            'answers' => ['test']
+            'answers' => ['test'],
         ]);
 
         $response->assertStatus(404);
     }
 
     /**
-     * Test Question Type Error and return with Bad request status code
+     * Test Question Type Error and return with Bad request status code.
      *
      * @return void
      */
@@ -84,7 +84,7 @@ class AnswerTest extends TestCase
         $patient = factory(Patient::class)->create();
         // set question type is radio
         $question = factory(Question::class)->create([
-            'type' => 'radio'
+            'type' => 'radio',
         ]);
         // radio type should have only one answer
         $answers = ['answer1', 'answer2'];
@@ -92,14 +92,14 @@ class AnswerTest extends TestCase
         $response = $this->postJson(route('api::answer::create'), [
             'patient_id' => $patient->id,
             'question_id' => $question->id,
-            'answers' => $answers
+            'answers' => $answers,
         ]);
 
         $response->assertStatus(400);
     }
 
     /**
-     * Test create multiple answers
+     * Test create multiple answers.
      *
      * @return void
      */
@@ -108,13 +108,13 @@ class AnswerTest extends TestCase
         $answers = ['answer1', 'answer2'];
         $patient = factory(Patient::class)->create();
         $question = factory(Question::class)->create([
-            'type' => Question::CHECKBOX
+            'type' => Question::CHECKBOX,
         ]);
 
         $response = $this->postJson(route('api::answer::create'), [
             'patient_id' => $patient->id,
             'question_id' => $question->id,
-            'answers' => $answers
+            'answers' => $answers,
         ]);
 
         $response->assertSuccessful();
@@ -127,7 +127,7 @@ class AnswerTest extends TestCase
     }
 
     /**
-     * Test update Answers
+     * Test update Answers.
      *
      * @return void
      */
@@ -147,12 +147,12 @@ class AnswerTest extends TestCase
         $this->assertDatabaseHas('answers', [
             'patient_id' => $answer->patient_id,
             'question_id' => $answer->question_id,
-            'answers' => json_encode($updateAnswers)
+            'answers' => json_encode($updateAnswers),
         ]);
 
         // test old answers
         $this->assertDatabaseMissing('answers', [
-            'answers' => json_encode($answer->answers)
+            'answers' => json_encode($answer->answers),
         ]);
     }
 }

@@ -22,7 +22,7 @@ class AnswerController extends Controller
     }
 
     /**
-     * Create Answer
+     * Create Answer.
      *
      * @param AnswerCreateRequest $request
      * @return Illuminate\Database\Eloquent\Model
@@ -33,7 +33,7 @@ class AnswerController extends Controller
     }
 
     /**
-     * Update Answer
+     * Update Answer.
      *
      * @param AnswerUpdateRequest $request
      * @return Illuminate\Database\Eloquent\Model

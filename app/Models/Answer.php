@@ -12,7 +12,7 @@ class Answer extends Model
      * @var array
      */
     protected $fillable = [
-        'patient_id', 'question_id', 'answers'
+        'patient_id', 'question_id', 'answers',
     ];
 
     /**
