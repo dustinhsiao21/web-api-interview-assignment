@@ -2,7 +2,7 @@
 
 /** @var Factory $factory */
 
-use App\Question;
+use App\Models\Question;
 use Faker\Generator as Faker;
 use Illuminate\Database\Eloquent\Factory;
 
@@ -20,6 +20,6 @@ use Illuminate\Database\Eloquent\Factory;
 $factory->define(Question::class, function (Faker $faker) {
     return [
         'title' => $faker->text,
-        'type' => $faker->randomElement(['select', 'radio', 'checkbox']),
+        'type' => $faker->randomElement(Question::TYPE),
     ];
 });
