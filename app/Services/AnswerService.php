@@ -39,7 +39,7 @@ class AnswerService
 
         $this->patients->findOrFail($data['patient_id']);
 
-        if ($question->type != Question::CHECKBOX && count($data['answers']) > 1) {
+        if ($question->type != Question::CHECKBOX && count($data['answers']) != 1) {
             throw new QuestionTypeErrorException('Question should only have one answer');
         }
 
