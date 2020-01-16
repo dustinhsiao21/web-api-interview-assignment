@@ -26,8 +26,8 @@ class PatientController extends Controller
      * @param PatientRequest $request
      * @return Illuminate\Database\Eloquent\Model
      */
-    public function get(PatientRequest $request)
+    public function getAnswers(PatientRequest $request)
     {
-        return $this->patientService->getById($request->id);
+        return $this->patientService->getAnswersById($request->id);
     }
 }

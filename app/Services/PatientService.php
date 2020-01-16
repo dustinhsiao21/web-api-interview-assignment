@@ -20,12 +20,12 @@ class PatientService
     }
 
     /**
-     * Get Patient and Answers By patient Id.
+     * Get Answers By patient id.
      *
-     * @param int $id
+     * @param int $id patient id
      * @return Illuminate\Database\Eloquent\Model
      */
-    public function getById(int $id)
+    public function getAnswersById(int $id)
     {
         return $this->patients->findOrFail($id)->load('answers');
     }

@@ -14,9 +14,11 @@ use Illuminate\Http\Request;
 */
 
 Route::group(['namespace' => 'API', 'as' => 'api::'], function () {
-    Route::get('/patient', 'PatientController@get')->name('patient');
-    Route::group(['as' => 'answer::'], function () {
-        Route::post('/answer', 'AnswerController@create')->name('create');
-        Route::put('/answer', 'AnswerController@update')->name('update');
+    Route::group(['prefix' => 'patient', 'as' => 'patient::'], function () {
+        Route::get('/answer', 'PatientController@getAnswers')->name('answer');
+    });
+    Route::group(['prefix' => 'answer', 'as' => 'answer::'], function () {
+        Route::post('/', 'AnswerController@create')->name('create');
+        Route::put('/', 'AnswerController@update')->name('update');
     });
 });

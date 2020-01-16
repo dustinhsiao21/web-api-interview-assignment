@@ -16,11 +16,11 @@ class PatientTest extends TestCase
      *
      * @return void
      */
-    public function testGet()
+    public function testGetAnswer()
     {
         $answer = factory(Answer::class)->create();
 
-        $response = $this->json('GET', route('api::patient'), ['id' => $answer->patient_id]);
+        $response = $this->json('GET', route('api::patient::answer'), ['id' => $answer->patient_id]);
 
         $response->assertSuccessful();
 
@@ -38,7 +38,7 @@ class PatientTest extends TestCase
      */
     public function testGetFail()
     {
-        $response = $this->json('GET', route('api::patient'), ['id' => 1]);
+        $response = $this->json('GET', route('api::patient::answer'), ['id' => 1]);
 
         $response->assertStatus(404);
     }
