@@ -20,7 +20,7 @@ class PatientRepository
     }
 
     /**
-     * find patient by id
+     * find patient by id.
      *
      * @param int $id patient id
      * @return Illuminate\Database\Eloquent\Model
