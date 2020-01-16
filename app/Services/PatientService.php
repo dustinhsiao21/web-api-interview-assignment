@@ -20,9 +20,9 @@ class PatientService
     }
 
     /**
-     * Get Patient and Answers By patient Id
+     * Get Patient and Answers By patient Id.
      *
-     * @param integer $id
+     * @param int $id
      * @return Illuminate\Database\Eloquent\Model
      */
     public function getById(int $id)

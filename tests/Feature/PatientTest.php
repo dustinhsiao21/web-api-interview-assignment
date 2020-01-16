@@ -12,7 +12,7 @@ class PatientTest extends TestCase
     use RefreshDatabase;
 
     /**
-     * Test get patient
+     * Test get patient.
      *
      * @return void
      */
@@ -32,7 +32,7 @@ class PatientTest extends TestCase
     }
 
     /**
-     * Test patient not found
+     * Test patient not found.
      *
      * @return void
      */

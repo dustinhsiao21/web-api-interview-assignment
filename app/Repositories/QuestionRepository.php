@@ -20,9 +20,9 @@ class QuestionRepository
     }
 
     /**
-     * Find Question by Id
+     * Find Question by Id.
      *
-     * @param integer $id
+     * @param int $id
      * @return Illuminate\Database\Eloquent\Model
      */
     public function findOrFail(int $id)

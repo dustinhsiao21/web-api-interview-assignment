@@ -7,7 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 abstract class Request extends FormRequest
 {
     /**
-     * Only get data from rules
+     * Only get data from rules.
      *
      * @return array
      */
@@ -17,6 +17,7 @@ abstract class Request extends FormRequest
         $fields = array_map(function ($field) {
             return strstr($field, '.*', true) ?: $field;
         }, $fields);
+
         return $this->only($fields);
     }
 

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Services\PatientService;
-use App\Http\Requests\PatientRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PatientRequest;
+use App\Services\PatientService;
 
 class PatientController extends Controller
 {
@@ -21,7 +21,7 @@ class PatientController extends Controller
     }
 
     /**
-     * Get Patient
+     * Get Patient.
      *
      * @param PatientRequest $request
      * @return Illuminate\Database\Eloquent\Model
