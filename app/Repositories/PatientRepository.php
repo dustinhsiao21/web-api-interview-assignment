@@ -20,16 +20,11 @@ class PatientRepository
     }
 
     /**
-     * find patient.
+     * find patient by id
      *
-     * @param array $array
-     * @return void
+     * @param int $id patient id
+     * @return Illuminate\Database\Eloquent\Model
      */
-    public function where(array $array)
-    {
-        return $this->model->where($array);
-    }
-
     public function findOrFail(int $id)
     {
         return $this->model->findOrFail($id);
