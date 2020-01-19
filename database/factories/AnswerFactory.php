@@ -9,6 +9,6 @@ $factory->define(Answer::class, function (Faker $faker) {
     return [
         'patient_id' => factory(App\Models\Patient::class),
         'question_id' => factory(App\Models\Question::class),
-        'answers' => json_encode($faker->words),
+        'answers' => [$faker->word],
     ];
 });
