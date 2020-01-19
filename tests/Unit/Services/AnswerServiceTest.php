@@ -3,11 +3,11 @@
 namespace Tests\Feature;
 
 use App\Exceptions\QuestionTypeErrorException;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\Models\Answer;
 use App\Models\Patient;
 use App\Models\Question;
 use App\Services\AnswerService;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -16,7 +16,7 @@ class AnswerServiceTest extends TestCase
     use RefreshDatabase;
 
     /**
-     * Setup
+     * Setup.
      *
      * @return void
      */
@@ -41,7 +41,7 @@ class AnswerServiceTest extends TestCase
         $data = [
             'patient_id' => $patient->id,
             'question_id' => $question->id,
-            'answers' => $answers
+            'answers' => $answers,
         ];
 
         $result = $this->service->updateOrCreate($data);
@@ -52,7 +52,7 @@ class AnswerServiceTest extends TestCase
     }
 
     /**
-     * Test update answer
+     * Test update answer.
      *
      * @return void
      */
@@ -64,7 +64,7 @@ class AnswerServiceTest extends TestCase
         $data = [
             'patient_id' => $answer->patient_id,
             'question_id' => $answer->question_id,
-            'answers' => $answers
+            'answers' => $answers,
         ];
 
         $result = $this->service->updateOrCreate($data);
@@ -72,7 +72,7 @@ class AnswerServiceTest extends TestCase
     }
 
     /**
-     * Test patient id not found when update answer
+     * Test patient id not found when update answer.
      *
      * @return void
      */
@@ -84,7 +84,7 @@ class AnswerServiceTest extends TestCase
         $data = [
             'patient_id' => $answer->patient_id + 1,
             'question_id' => $answer->question_id,
-            'answers' => $answers
+            'answers' => $answers,
         ];
 
         $this->expectException(ModelNotFoundException::class);
@@ -92,8 +92,8 @@ class AnswerServiceTest extends TestCase
     }
 
     /**
-     * Test question id not found when update answer
-     * 
+     * Test question id not found when update answer.
+     *
      * @return void
      */
     public function testQuestionNotFoundWhenUpdateAnswer()
@@ -104,7 +104,7 @@ class AnswerServiceTest extends TestCase
         $data = [
             'patient_id' => $answer->patient_id,
             'question_id' => $answer->question_id + 1,
-            'answers' => $answers
+            'answers' => $answers,
         ];
 
         $this->expectException(ModelNotFoundException::class);
@@ -129,14 +129,14 @@ class AnswerServiceTest extends TestCase
         $data = [
             'patient_id' => $answer->patient_id,
             'question_id' => $answer->question_id,
-            'answers' => $answers
+            'answers' => $answers,
         ];
         $this->expectException(QuestionTypeErrorException::class);
         $this->service->updateOrCreate($data);
     }
 
     /**
-     * Test GetAnswersByPatientId
+     * Test GetAnswersByPatientId.
      *
      * @return void
      */
@@ -153,7 +153,7 @@ class AnswerServiceTest extends TestCase
     }
 
     /**
-     * Test Patient Not Found when getAnswersByPatientId
+     * Test Patient Not Found when getAnswersByPatientId.
      *
      * @return void
      */
