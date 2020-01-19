@@ -20,7 +20,7 @@ class CreateAnswersTable extends Migration
             $table->json('answers');
             $table->timestamps();
 
-            $table->index(['patient_id', 'question_id']);
+            $table->unique(['patient_id', 'question_id']);
         });
     }
 

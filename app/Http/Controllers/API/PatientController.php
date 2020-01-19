@@ -4,30 +4,30 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PatientRequest;
-use App\Services\PatientService;
+use App\Services\AnswerService;
 
 class PatientController extends Controller
 {
-    private $patientService;
+    private $answerService;
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct(PatientService $patientService)
+    public function __construct(AnswerService $answerService)
     {
-        $this->patientService = $patientService;
+        $this->answerService = $answerService;
     }
 
     /**
-     * Get Patient.
+     * Get Answer By Patient Id.
      *
      * @param PatientRequest $request
      * @return Illuminate\Database\Eloquent\Model
      */
     public function getAnswers(PatientRequest $request)
     {
-        return $this->patientService->getAnswersById($request->id);
+        return $this->answerService->getAnswersByPatientId($request->id);
     }
 }

@@ -3,7 +3,7 @@
 namespace Tests\Feature;
 
 use App\Models\Answer;
-use App\Models\Patient;
+use App\Models\Question;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -24,11 +24,12 @@ class PatientTest extends TestCase
 
         $response->assertSuccessful();
 
-        $patient = Patient::find($answer->patient_id);
+        $result = $response->decodeResponseJson();
 
-        $this->assertEquals($response['first_name'], $patient->first_name);
-        $this->assertEquals($response['last_name'], $patient->last_name);
-        $this->assertEquals($response['answers'][0]['answers'], $answer->answers);
+        $question = Question::find($answer->question_id);
+
+        $this->assertEquals($question->title, $result[0]['question']['title']);
+        $this->assertEquals($answer->answers, $result[0]['answers']);
     }
 
     /**

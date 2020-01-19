@@ -23,4 +23,9 @@ class Answer extends Model
     protected $casts = [
         'answers' => 'array',
     ];
+
+    public function question()
+    {
+        return $this->belongsTo('App\Models\Question');
+    }
 }

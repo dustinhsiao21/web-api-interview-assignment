@@ -32,4 +32,15 @@ class AnswerRepository
             'question_id' => $data['question_id'],
         ], ['answers' => $data['answers']]);
     }
+
+    /**
+     * Find Answers by patient ID
+     *
+     * @param integer $id
+     * @return void
+     */
+    public function findByPatientId(int $id)
+    {
+        return $this->model->where('patient_id', $id);
+    }
 }

@@ -48,4 +48,17 @@ class AnswerService
 
         return $this->answers->updateOrCreate($data);
     }
+
+    /**
+     * Get Answers by Patient Id.
+     *
+     * @param integer $id patient id
+     * @return Illuminate\Database\Eloquent\Collection
+     */
+    public function getAnswersByPatientId(int $id)
+    {
+        $this->patients->findOrFail($id);
+
+        return $this->answers->findByPatientId($id)->with('question')->get();
+    }
 }
