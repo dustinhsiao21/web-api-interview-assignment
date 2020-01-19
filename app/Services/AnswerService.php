@@ -52,7 +52,7 @@ class AnswerService
     /**
      * Get Answers by Patient Id.
      *
-     * @param integer $id patient id
+     * @param int $id patient id
      * @return Illuminate\Database\Eloquent\Collection
      */
     public function getAnswersByPatientId(int $id)

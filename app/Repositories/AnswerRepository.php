@@ -34,9 +34,9 @@ class AnswerRepository
     }
 
     /**
-     * Find Answers by patient ID
+     * Find Answers by patient ID.
      *
-     * @param integer $id
+     * @param int $id
      * @return void
      */
     public function findByPatientId(int $id)
